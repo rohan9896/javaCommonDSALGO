@@ -1,0 +1,81 @@
+import java.util.*;
+  import java.io.*;
+  
+  public class Main {
+    
+    static int[] merge(int[] left,int[] right){
+      
+      int[] result = new int[left.length+right.length];
+      
+      int i=0;//pointer to left array
+      int j=0;//pointer to right array
+      int k=0;//pointer to result array
+      
+      while(i<left.length && j<right.length){
+        
+        if(left[i]<right[j]){
+          result[k++] = left[i++];
+        }
+        else{
+          result[k++] = right[j++];
+        }
+      }
+      
+      while(i<left.length){
+        result[k++] = left[i++];
+      }
+      
+      while(j<right.length){
+        result[k++] = right[j++];
+      }
+      
+      return result;
+      
+    }
+    
+    
+    
+    static int[] mergeSort(int a[]){
+      if(a.length<=1){
+        return a;
+      }
+      
+      //1. Divide into two arrays
+      int mid = a.length/2;
+      
+      int left[] = new int[mid];
+      int right[] = new int[a.length-mid];
+      
+      for(int i=0;i<mid;i++)
+        left[i] = a[i];
+        
+      for(int i=0;i<right.length;i++)
+        right[i] = a[mid+i];
+      
+      int[] result = new int[a.length];
+      
+      //2. Recursively solve two parts
+      left = mergeSort(left);
+      right = mergeSort(right);
+      
+      //3. Merge two parts
+      return merge(left,right);
+      
+    }
+    
+    static Scanner sc = new Scanner(System.in);
+    
+    public static void main(String args[]) throws IOException {
+      
+      //write your code here
+      int n = sc.nextInt(); 
+      int[] arr = new int[n];
+      for(int i=0;i<n;i++)
+        arr[i] = sc.nextInt();
+      arr = mergeSort(arr);
+      for(int i: arr){
+        System.out.print(i+" ");
+      }
+      
+    }
+  }
