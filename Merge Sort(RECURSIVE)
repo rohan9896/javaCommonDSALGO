@@ -2,6 +2,9 @@ import java.util.*;
   import java.io.*;
   
   public class Main {
+  
+    //T.C.- O(nLogn) 
+    //S.C.- O(n)
     
     static int[] merge(int[] left,int[] right){
       
