@@ -1,0 +1,43 @@
+public class Main
+{
+    // conditions----
+    // 1. array should be sorted
+    // 2. 1st point
+    // 3. 2nd point ;-D yes only one condition LOL
+    
+    
+    /* Algorithm---
+    1. find mid index
+    2. check whether arr[mid] == elemnt to be searched
+    3. if mid ele is greater than e than ignore the half present after the mid(as it is sorted array READ ALL CONDITIONS)
+    4. else ignore the half present before and search in remaining
+    5. DIVIDE, IGNORE, REPEAT until it reaches base case
+    */
+    
+    static int binarySearch(int[] arr,int e,int low,int high){
+        
+        
+        // 1. Find mid
+        int mid = low + (high-low)/2; //it'll prevent Integer overflow
+        
+        // 2. if middle elemnt is e return mid
+        if(arr[mid]==e){
+            return mid;
+        }
+        
+        // 3. if middle elemnt is greater than e, search in subarray before mid
+        if(arr[mid]>e){
+            return binarySearch(arr,e,low,mid-1);
+        }
+        
+        // 4. else it will obviously be present in subarray after mid
+        return binarySearch(arr,e,mid+1,high);
+        
+    }
+    
+    
+	public static void main(String[] args) {
+		int[] arr = {1,3,5,7,9,12};
+		System.out.println(binarySearch(arr,5,0,arr.length-1));
+	}
+}
