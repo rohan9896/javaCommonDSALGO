@@ -12,7 +12,7 @@ public class Main
     3. DIVIDE, IGNORE, REPEAT until it reaches base case
     */
     
-    static int binarySearch(int[] arr,int e,int low,int high){
+    static int ternarynarySearch(int[] arr,int e,int low,int high){
         
         
         while(low<=high){
@@ -46,6 +46,6 @@ public class Main
     
 	public static void main(String[] args) {
 		int[] arr = {1,3,5,7,9,12};
-		System.out.println(binarySearch(arr,9,0,arr.length-1));
+		System.out.println(ternarySearch(arr,9,0,arr.length-1));
 	}
 }
