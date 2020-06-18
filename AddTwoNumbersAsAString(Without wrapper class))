@@ -21,13 +21,13 @@ public class Main
 	        carry = sumOfDigs/10;                  //System.out.println(i+" :carry "+carry);
 	        res.append(resDig);
 	    }
-	    while(i<sb1.length()){
+	    while(i<sb1.length()){                            // if len of sb1 is greater it will come in this loop
 	        int dig1 = (int)sb1.charAt(i) - 48 + carry;
 	        carry = 0;
 	        res.append(dig1);
 	        i++;
 	    }
-	    while(i<sb2.length()){
+	    while(i<sb2.length()){                                 // if len of sb2 is greater it will come in this loop
 	        int dig2 = (int)sb2.charAt(i) - 48 + carry;
 	        carry = 0;
 	        res.append(dig2);
