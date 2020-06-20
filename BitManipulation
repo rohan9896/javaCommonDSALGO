@@ -1,0 +1,50 @@
+Left Shift operator - << - Shifts bits to left towards MSB(most significant bit) 
+   n << 1 --- i) it will shift all the bits by one towards MSB
+              ii) n will become n*2toThePower(1)
+              iii) for eg.- n << x , it will multiply n with 2 to the power x
+              iv) Binary rep of 60 is 0000 0000 0011 1100, after applying << 1 , it will become 0000 0000 0111 1000 (120) i.e. getting 
+              multiplied by 2 to the power 1.
+              
+
+Right Shift Operator - >> - Shifts bits to right towards LSB(least significant bit)
+      n >> x ---- same as above, only diff will be instead of multiplying by 2 to the power x here it will divide by 2 to the power x.
+      if MSB is 1 it will add 1 from right else it will add 0
+      n >>> x --- in triple op always 0 is added
+      for eg - Binary rep of 60 is 0000 0000 0011 1100, after applying >> 1 , it will become 0000 0000 0001 1110 (30) i.e. getting divided 
+      by 2 to the power 1.
+      
+
+
+AND op(&) - gives 1 if both bits are 1.
+    n & 0 = 0,  n & 1 = n
+
+
+OR op(|) - gives 1 if either of the bits is 1.
+    n | 0 = n, n | 1 = 1
+
+
+XOR op(^) - same bits - 0, diff bits - 1.
+    n ^ 1 = ~n, n ^ 0 = n             , where ~ is toggle op
+    
+    
+ TO OFF A BIT = & 0 (and with 0)
+ TO ON A BIT = | 1  (or with 1)
+ TO TOGGLE A BIT = ^ 1  (xor with 1)
+ 
+ 
+ 
+ CHECK whether a kth bit is set or not ----  it will check whether kth bit of n is set or not(set the kth bit)
+ Number is n
+ let k = 3
+ int mask = 1 << k; // i.e. 1 << 3 (0000 0000 0000 1000)   // only kth bit will be one rest will be zero
+ if((n & mask) == 0) SOP("NOT SET");
+ else SOP("SET");
+ 
+ TURN ON Kth BIT --- it will turn kth bit of n ON i.e. it will become 1 or set
+ Number is n
+ let k = 3
+ SOP(Interger.toBinaryString(n)); //before turning on the kth bit
+ int mask = 1 << k;  // i.e. 1 << 3 (0000 0000 0000 1000)   // only kth bit will be one rest will be zero
+ n = n | mask;
+ SOP(Interger.toBinaryString(n)); //after turning on the kth bit
+ 
