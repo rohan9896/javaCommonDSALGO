@@ -68,7 +68,7 @@ XOR op(^) - same bits - 0, diff bits - 1.
  SOP(Interger.toBinaryString(n)); //after toggling the kth bit
  
  
- PRINT INTEGER TO BINARY (Without wrapper class Interger.toBinaryString())
+ CONVERT INTEGER TO BINARY (Without wrapper class Interger.toBinaryString())
  int n = 3456789567;
  for(int i=31;i>=0;i--){
       int mask = 1 << i;
