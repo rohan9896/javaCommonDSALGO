@@ -40,7 +40,7 @@ XOR op(^) - same bits - 0, diff bits - 1.
  if((n & mask) == 0) SOP("NOT SET");
  else SOP("SET");
  
- TURN ON Kth BIT --- it will turn kth bit of n ON i.e. it will become 1 or set
+ TURN ON Kth BIT --- it will turn kth bit of n ON i.e. it will become 1 or set  ( | with mask(1 << k))
  Number is n
  let k = 3
  SOP(Interger.toBinaryString(n)); //before turning on the kth bit
@@ -48,3 +48,34 @@ XOR op(^) - same bits - 0, diff bits - 1.
  n = n | mask;
  SOP(Interger.toBinaryString(n)); //after turning on the kth bit
  
+ 
+ TURN OFF Kth BIT --- it will turn kth bit on n OFF i.e. it'll become 0 or not set ( & with ~mask(~(1 <<k)))
+ Number is n
+ let k = 3
+ SOP(Interger.toBinaryString(n)); //before turning off the kth bit
+ int mask = 1 << k;  // i.e. 1 << 3 (0000 0000 0000 1000)   // only kth bit will be one rest will be zero
+ int comp_mask = ~mask;
+ n = n & comp_mask;
+ SOP(Interger.toBinaryString(n)); //after turning off the kth bit
+ 
+ 
+ TOGGLE Kth BIT ---- it will change the kth bit from 0 to 1 or vice-versa  ( ^ with mask (1 << k))
+ Number is n
+ let k = 3
+ SOP(Interger.toBinaryString(n)); //before toggling the kth bit
+ int mask = 1 << k;  // i.e. 1 << 3 (0000 0000 0000 1000)   // only kth bit will be one rest will be zero
+ n = n ^ mask;
+ SOP(Interger.toBinaryString(n)); //after toggling the kth bit
+ 
+ 
+ PRINT INTEGER TO BINARY (Without wrapper class Interger.toBinaryString())
+ int n = 3456789567;
+ for(int i=31;i>=0;i--){
+      int mask = 1 << i;
+      if((n & mask)==0)
+         SOP(0);
+       else
+         SOP(1);
+  }
+  
+  
