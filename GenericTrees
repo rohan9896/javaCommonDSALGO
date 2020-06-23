@@ -1,0 +1,81 @@
+GENERIC TREES - ANY NUMBER OF CHILDREN OR DECENDENTS
+
+-----------------------------CODE -----------------------
+import java.util.*;
+import java.io.*;
+
+public class Main
+{
+    
+    private static class Node{
+        int data;
+        ArrayList<Node> children = new ArrayList<>();
+    }
+    
+    
+    // Display tree func
+    private static void display(Node node){
+        String str = node.data + "-> ";
+        for(Node child: node.children){
+            str += child.data + ",";
+        }
+        str += "end";
+        System.out.println(str);
+        for(Node child: node.children){
+            display(child);
+        }
+    }
+    
+    
+    // Size of tree(No. of nodes in tree)
+    private static int size(Node node){
+        int totalSize = 0;
+        
+        // it will add the size of all children of node
+        for(Node child: node.children){
+            int childSize = size(child);
+            totalSize += childSize; 
+        }
+        // it will add the size of self node after adding the size of all children
+        totalSize++;
+        
+        return totalSize;
+    }
+    
+    
+    
+	public static void main(String[] args) {
+	    int[] arr = {10,20,50,-1,60,-1,-1,30,70,-1,80,110,-1,120,-1,-1,90,-1,-1,40,100,-1,-1,-1};
+	    
+	    Node root = null;
+	    Stack<Node> stk = new Stack<>();
+	    
+	    for(int i=0;i<arr.length;i++){
+	        // either element will be -1 or some data
+	        if(arr[i]==-1){
+	            stk.pop();
+	        }
+	        else{
+	            // 1.Create the Node
+	            Node tempNode = new Node();
+	            
+	            // 2. Add data to the Node
+	            tempNode.data = arr[i];
+	            
+	            // 3. Make that Node the children of peek node in Stack
+	            if(stk.size()>0){
+	                // Add to children ArrayList if stack isnt empty
+	                stk.peek().children.add(tempNode);
+	            }
+	            else{
+	                // if stack is empty make that root node
+	                root = tempNode;
+	            }
+	            stk.push(tempNode);
+	        }
+	    }
+	    
+	    //display(root);
+	    System.out.println(size(root));
+	}
+}
