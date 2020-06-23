@@ -1,0 +1,22 @@
+TREES - NON linear data structure
+                                                    NODE
+                                                  / / | \ \.....\   <- pointers to n number of nodes
+                Further divided into notes ->    / \
+                                              leafs(which are not further divided into nodes(doesnt have any child))
+                                              
+
+
+BINARY TREE - 0 or 1 or 2 child nodes
+Max. no of nodes in tree of height h is (2^(h+1))-1 or (2toThePower level-1) or (sum of gp till 2toThePower h)
+Min. no of nodes in tree of height h is h+1
+node contains two pointers- i) pointer to left subtree
+                            ii) pointer to right sutree
+types of binary tree - 
+                      i) strict/proper binary tree - every node has exactly two or zero number of child
+                      ii) full/perfect binary tree - every node should have rwo children and all leaf nodes should be at same level
+                      iii) Complete binary tree - all levels (except possibly last) are completely filled and all nodes are as left as possible.
+
+
+Traversal -  
+
+                      
