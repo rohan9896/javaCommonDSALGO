@@ -42,6 +42,18 @@ public class Main
         return totalSize;
     }
     
+    // return node with maximum value
+    private static int max(Node node){
+        int max = Integer.MIN_VALUE;
+        
+        for(Node child: node.children){
+            int childMax = max(child);
+            max = Math.max(childMax,max);
+        }
+        max = Math.max(node.data,max);
+        
+        return max;
+    }
     
     
 	public static void main(String[] args) {
@@ -62,7 +74,7 @@ public class Main
 	            // 2. Add data to the Node
 	            tempNode.data = arr[i];
 	            
-	            // 3. Make that Node the children of peek node in Stack
+	            // 3. Make that Node as the children of peek node in Stack
 	            if(stk.size()>0){
 	                // Add to children ArrayList if stack isnt empty
 	                stk.peek().children.add(tempNode);
@@ -76,6 +88,7 @@ public class Main
 	    }
 	    
 	    //display(root);
-	    System.out.println(size(root));
+	    //System.out.println(size(root));
+	    System.out.println(max(root));
 	}
 }
