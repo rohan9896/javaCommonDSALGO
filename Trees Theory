@@ -17,6 +17,7 @@ types of binary tree -
                       iii) Complete binary tree - all levels (except possibly last) are completely filled and all nodes are as left as possible.
 
 
-Traversal -  
-
+Traversal -  i) Pre-order traversal - root -> left side subtree -> right side subtree
+            ii) In-order traversal - left side subtree -> root -> right side subtree
+           iii) Post-order traversal - 
                       
