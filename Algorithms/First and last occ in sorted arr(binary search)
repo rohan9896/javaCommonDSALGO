@@ -23,6 +23,7 @@ public class Main
     // return the first index of an elemnt in a sorted array
     private static int firstIdx(int[] arr, int e,int low,int high){
         int i = binarySearch(arr,e,low,high);
+	if(i==-1) return -1;
         while(i>=0 && arr[i]==e){
             --i;
         }
@@ -33,6 +34,7 @@ public class Main
     // return the last index of an elemnt in a sorted array
     private static int lastIdx(int[] arr, int e,int low,int high){
         int i = binarySearch(arr,e,low,high);
+	if(i==-1) return -1;
         while(i>=arr.length-1 && arr[i]==e){
             i++;
         }
