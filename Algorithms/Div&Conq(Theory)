@@ -1,0 +1,19 @@
+DIVIDE AND CONQUER ------- eg - Binary search, merge sort, quick sort,etc
+                           use - when we cant use greedy
+                           how - recursively
+                           
+##########STEPS##########                  
+-> DIVIDE - break the problem in sub problem until the problem can be solved directly                           PROBLEM
+-> RECURSION - recursively solve subproblems                                                                     /   \
+-> CONQUER - combine the solutions of sub problem to get the final solution                                     /     \
+##########################                                                                                     /        \
+                                                                                                        SUB-Problem     SUB-Problem
+                                                                                                              |               |
+                                                                                                          RECURSIVE         RECURSIVE
+                                                                                                        LEAP OF FAITH      LEAP OF FAITH
+                                                                                                                |                  |   
+                                                                                                                |                  |     
+                                                                                                                |__________________|
+                                                                                                                           |
+                                                                                                                   COMBINE and GET the 
+                                                                                                                       ANSWER :-\ XD
