@@ -38,7 +38,7 @@ public class Main {
             }
         }
         
-        return sortArr(arr,low,high-1);
+        return recursiveBubbleSort(arr,low,high-1);
     }
   
   
