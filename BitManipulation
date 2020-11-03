@@ -33,14 +33,14 @@ XOR op(^) - same bits - 0, diff bits - 1.
  
  
  
- CHECK whether a kth bit is set or not ----  it will check whether kth bit of n is set or not(set the kth bit)
+ => CHECK whether a kth bit is set or not ----  it will check whether kth bit of n is set or not(set the kth bit)
  Number is n
  let k = 3
  int mask = 1 << k; // i.e. 1 << 3 (0000 0000 0000 1000)   // only kth bit will be one rest will be zero
  if((n & mask) == 0) SOP("NOT SET");
  else SOP("SET");
  
- TURN ON Kth BIT --- it will turn kth bit of n ON i.e. it will become 1 or set  ( | with mask(1 << k))
+ => TURN ON Kth BIT --- it will turn kth bit of n ON i.e. it will become 1 or set  ( | with mask(1 << k))
  Number is n
  let k = 3
  SOP(Interger.toBinaryString(n)); //before turning on the kth bit
@@ -49,7 +49,7 @@ XOR op(^) - same bits - 0, diff bits - 1.
  SOP(Interger.toBinaryString(n)); //after turning on the kth bit
  
  
- TURN OFF Kth BIT --- it will turn kth bit on n OFF i.e. it'll become 0 or not set ( & with ~mask(~(1 <<k)))
+ => TURN OFF Kth BIT --- it will turn kth bit on n OFF i.e. it'll become 0 or not set ( & with ~mask(~(1 <<k)))
  Number is n
  let k = 3
  SOP(Interger.toBinaryString(n)); //before turning off the kth bit
@@ -59,7 +59,7 @@ XOR op(^) - same bits - 0, diff bits - 1.
  SOP(Interger.toBinaryString(n)); //after turning off the kth bit
  
  
- TOGGLE Kth BIT ---- it will change the kth bit from 0 to 1 or vice-versa  ( ^ with mask (1 << k))
+ => TOGGLE Kth BIT ---- it will change the kth bit from 0 to 1 or vice-versa  ( ^ with mask (1 << k))
  Number is n
  let k = 3
  SOP(Interger.toBinaryString(n)); //before toggling the kth bit
@@ -68,7 +68,7 @@ XOR op(^) - same bits - 0, diff bits - 1.
  SOP(Interger.toBinaryString(n)); //after toggling the kth bit
  
  
- CONVERT INTEGER TO BINARY (Without wrapper class Interger.toBinaryString())
+ => CONVERT INTEGER TO BINARY (Without wrapper class Interger.toBinaryString())
  int n = 3456789567;
  for(int i=31;i>=0;i--){
       int mask = 1 << i;
@@ -78,4 +78,58 @@ XOR op(^) - same bits - 0, diff bits - 1.
          SOP(1);
   }
   
+  => Given an array, all no. appear even number of times except two nos. Return both the numbers. (req. TC - O(n) SC - O(1))
+   Array - {4, 1, 2, 3, 2, 1, 5, 4}
+   nos will be 3 and 5
+   If we take XOR of all nos., then result will be 3^5 = 6
+   3 - 011
+   5 - 101
+ 3^5 - 110 => 6
+   Now we will check all the nos of array across any set bit position of XOR of whole array i.e. either 2nd or 3rd bit postion from right in case of 110
+   It will divide the array in two set of arrays having one odd occuring in each set
+   now we'll take the xor of both individually to get the answer
+
+CODE ---
+public class Main
+{
+    
+    static boolean kthIsSet(int k, int n){
+        return (n & (1 << k)) > 0;
+    }
+    
+    
+	public static void main(String[] args) {
+		int[] arr = {4, 1, 2, 3, 2, 1, 5, 4};
+		
+		int xorOfTwo = 0; //3^5
+		
+		for(int i = 0; i < arr.length; i++){
+		    xorOfTwo = xorOfTwo ^ arr[i];
+		}
+		
+		int pos = 0;
+		
+		for(int i=0;i<32;i++){
+		    if(kthIsSet(i, xorOfTwo)){
+		        pos = i;
+		        break;
+		    }
+		}
+		
+		int firstNum = 0, secondNum = 0;
+		
+		for(int i = 0; i < arr.length; i++){
+		    if(kthIsSet(pos, arr[i])){
+		        firstNum = firstNum ^ arr[i];
+		    }
+		    else{
+		        secondNum = secondNum ^ arr[i];
+		    }
+		}
+		
+		System.out.println("firstNum: "+firstNum+" secondNum: "+secondNum);
+		
+	}
+}
+
   
