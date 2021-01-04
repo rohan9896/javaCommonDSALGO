@@ -20,5 +20,6 @@ public class Graph {
             }
             System.out.println();
         }
+        sc.close();
     }
 }
