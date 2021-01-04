@@ -5,21 +5,21 @@ import java.util.Scanner;
 
 public class Dfs {
 
-    public static void dfs(int[][] adjMatrix, int currentVertex, boolean[] visited){
+    public static void dftraversal(int[][] adjMatrix, int currentVertex, boolean[] visited){
         visited[currentVertex] = true;
         System.out.print(currentVertex+" ");
         for(int i=0;i<adjMatrix.length;i++){
             if(adjMatrix[currentVertex][i] == 1 && visited[i] == false){
-                dfs(adjMatrix, i, visited);
+                dftraversal(adjMatrix, i, visited);
             }
         }
     }
 
-    public static void dfs(int[][] adjMatrix){
+    public static void dftraversal(int[][] adjMatrix){
         int n = adjMatrix.length;
         boolean[] visited = new boolean[n];
         Arrays.fill(visited, false);
-        dfs(adjMatrix, 0, visited);
+        dftraversal(adjMatrix, 0, visited);
     }
 
     public static void main(String[] args) {
@@ -33,7 +33,7 @@ public class Dfs {
             adjMatrix[v1][v2] = 1;
             adjMatrix[v2][v1] = 1;
         }
-        dfs(adjMatrix);
+        dftraversal(adjMatrix);
         // for (int i = 0; i < n; i++) {
         //     for (int j = 0; j < n; j++) {
         //         System.out.print(adjMatrix[i][j] + " ");
@@ -52,5 +52,5 @@ input -
     0 3
     1 2
 output - 
-    0 1 2 3
+    0 1 2
 */
