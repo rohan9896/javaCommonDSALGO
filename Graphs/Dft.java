@@ -3,7 +3,7 @@ package Graphs;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Dfs {
+public class Dft {
 
     public static void dftraversal(int[][] adjMatrix, int currentVertex, boolean[] visited){
         visited[currentVertex] = true;
